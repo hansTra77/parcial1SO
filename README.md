@@ -150,8 +150,8 @@ def remove_file(filename):
 Con los archivos creados se procedio a habilitar el puerto 9090 en el archivo iptables.
 
 ```
-$ cat /etc/sysconfig/iptables
-$ service iptables restart
+# cat /etc/sysconfig/iptables
+# service iptables restart
 ```
 
 #### Prueba del servicio para la URI /files
