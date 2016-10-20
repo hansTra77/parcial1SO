@@ -226,7 +226,7 @@ $ deactivate
 ```
 Con lo anterior se dio por finalizado el parcial.
 
-[1]: images/get1.jpg
-[2]: images/post.jpg
-[3]: images/delete.jpg
-[4]: images/get2.jpg
+[1]: images/get1.JPG
+[2]: images/post.JPG
+[3]: images/delete.JPG
+[4]: images/get2.JPG
