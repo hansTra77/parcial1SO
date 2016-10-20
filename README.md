@@ -8,14 +8,14 @@ Link: https://github.com/hansTra77/parcial1SO/
 
 ### Creación del usuario filesystem_user, instalación de flask y creación del ambiente virtual
 
-Con el fin de desarrollar el parcial el primer paso consistio en la creación de un nuevo usuario, para tal fin se siguió el siguiente procedimiento
+Con el fin de desarrollar el parcial el primer paso consistió en la creación de un nuevo usuario, para tal fin se siguió el siguiente procedimiento
 
 ```
 # adduser filesystem_user
 # passwd password
 ```
 
-Con el nuevo usuario creado se procedio a crear el ambiente virtual que el usuario utilizaria
+Con el nuevo usuario creado se procedió a crear el ambiente virtual que el usuario utilizaría
 
 ```
 # su filesystem_user
@@ -25,24 +25,24 @@ $ cd envs
 $ virtualenv flask_env
 ```
 
-Se activo el ambiente virtual creado
+Se activó el ambiente virtual creado
 
 ```
 $ cd ~/envs
 $ . flask_env/bin/activate
 ```
 
-Despues se procedio a instalar Flask en el nuevo ambiente virtual
+Después se procedió a instalar Flask en el nuevo ambiente virtual
 
 ```
 $ pip install Flask
 ```
 
-Con lo anterior se termino con el proceso necesario previo al desarrollo del parcial
+Con lo anterior se terminó con el proceso necesario previo al desarrollo del parcial
 
 ### Creación de los archivos files.py y file_commands.py
 
-El enunciado del examen presentaba la siguiente informacion, que debia servir de guia para la implementacion de los scripts que levantarian los servicios web.
+El enunciado del examen presentaba la siguiente información, que debía servir de guía para la implementación de los scripts que levantarían los servicios web.
 
 Descripción de las URIs
 
@@ -85,7 +85,7 @@ Descripción del formato de intercambio de datos (JSON)
 }
 ```
 
-Se creo el archivo files.py
+Se creó el archivo files.py
 
 ```python
 from flask import Flask, abort, request
@@ -125,7 +125,7 @@ if __name__ == "__main__":
   app.run(host='0.0.0.0',port=9090,debug='True')
 ```
 
-Se creo el archivo file_commands.py
+Se creó el archivo file_commands.py
 
 ```python
 from subprocess import Popen, PIPE
@@ -178,7 +178,7 @@ if __name__ == "__main__":
   app.run(host='0.0.0.0',port=9191,debug='True')
 ```
 
-Con los archivos creados se procedio a habilitar el puerto 9090 y el 9191en el archivo iptables.
+Con los archivos creados se procedió a habilitar el puerto 9090 y el 9191en el archivo iptables.
 
 ```
 # cat /etc/sysconfig/iptables
@@ -192,7 +192,7 @@ Primero se levanta el servicio
 ```
 $ (flask_env) python files.py
 ```
-Con el servicio subido se procedio a utilizar la extensión Postman para verificar los resultados del servicio.
+Con el servicio subido se procedió a utilizar la extensión Postman para verificar los resultados del servicio.
 
 A continuación se muestran las pruebas al servicio web empleando la extensión postman.
 
@@ -219,7 +219,7 @@ Prueba de la URI con GET
 
 ![][4]
 
-Con esto realizado se procedio a desactivar el ambiente.
+Con esto realizado se procedió a desactivar el ambiente.
 
 ```
 $ deactivate
