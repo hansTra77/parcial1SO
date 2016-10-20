@@ -198,16 +198,38 @@ A continuación se muestran las pruebas al servicio web empleando la extensión 
 
 Prueba de la URI con GET
 
+<!--
+<p align="center">
+  <img src="images/get1.jpeg" alt="Sublime's custom image"/>
+</p> -->
 
 Prueba de la URI con POST
 
-
-Prueba de la URI con PUT
-
+<!--
+<p align="center">
+  <img src="images/post.jpeg" alt="Sublime's custom image"/>
+</p> -->
 
 Prueba de la URI con DELETE
 
+<!--
+<p align="center">
+  <img src="images/delete.jpeg" alt="Sublime's custom image"/>
+</p> -->
 
+#### Prueba del servicio para la URI /files/recently_created
+
+Primero se levanta el servicio
+
+```
+$ (flask_env) python files_recently.py
+```
+Prueba de la URI con GET
+
+<!--
+<p align="center">
+  <img src="images/get2.jpeg" alt="Sublime's custom image"/>
+</p> -->
 
 Con esto realizado se procedio a desactivar el ambiente.
 
