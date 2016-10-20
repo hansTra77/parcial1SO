@@ -125,7 +125,7 @@ if __name__ == "__main__":
   app.run(host='0.0.0.0',port=9090,debug='True')
 ```
 
-Y se creo el archivo file_commands.py
+Se creo el archivo file_commands.py
 
 ```python
 from subprocess import Popen, PIPE
@@ -138,16 +138,47 @@ def get_all_files():
 def add_file(filename,content):
   contenido = "'"+content+"'"
   nombre = "/home/filesystem_user/"+filename+".txt"
-  add_process = Popen(["echo",contenido,'>',nombre], stdout=PIPE, stderr=PIPE)
+  add_process = Popen(["touch",nombre], stdout=PIPE, stderr=PIPE)
   add_process.wait()
+  with open(filename,"W") as fo:
+    fo.Write(content)
   return True if filename in get_all_files() else False
 
 def remove_file(filename):
    remove_process = Popen(["rm",'-r',"/home/filesystem_user/*.txt"], stdout=PIPE, stderr=PIPE)
    remove_process.wait()
 ```
+Y se crearon los archivos file_res_commands.py y files_recently.py
 
-Con los archivos creados se procedio a habilitar el puerto 9090 en el archivo iptables.
+```python
+from subprocess import Popen, PIPE
+
+def get_recent_files():
+  ls_process = Popen(["ls","/home/filesystem_user/"], stdout=PIPE, stderr=PIPE)
+  file_list = Popen(["head",'-5'], stdin=ls_process.stdout, stdout=PIPE, stderr=PIPE).communicate()[0].split('\n')
+  return filter(None,file_list)
+```
+
+```python
+from flask import Flask, abort, request
+import json
+
+from file_res_commands import get_recent_files
+
+app = Flask(__name__)
+api_url = '/v1.0'
+
+@app.route(api_url+'/files/recently_created',methods=['GET'])
+def recent_created():
+  list = {}
+  list["recently created"] = get_recent_files()
+  return json.dumps(list), 200
+  
+if __name__ == "__main__":
+  app.run(host='0.0.0.0',port=9191,debug='True')
+```
+
+Con los archivos creados se procedio a habilitar el puerto 9090 y el 9191en el archivo iptables.
 
 ```
 # cat /etc/sysconfig/iptables
